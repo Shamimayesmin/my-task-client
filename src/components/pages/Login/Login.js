@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 
 const Login = () => {
 
     const { login ,googleSignIn} = useContext(AuthContext);
 
-	// const location = useLocation();
-	// const navigate = useNavigate();
-	// const from = location.state?.from?.pathname || "/";
+	const location = useLocation();
+	const navigate = useNavigate();
+	const from = location.state?.from?.pathname || "/";
 
 	
 	const handleLogin = (event) => {
@@ -24,8 +24,7 @@ const Login = () => {
 				const user = result.user;
 				console.log(user);
 				form.reset();
-				
-
+				navigate(from, { replace: true });
 				const currentUser = {
 					email: user.email,
 				};
@@ -46,13 +45,14 @@ const Login = () => {
                 email: user.email,
             };
             console.log(currentUser);
+			navigate(from, { replace: true });
             
         })
         .catch(err => console.error(err))
     }
 	return (
 		
-		<div className="mx-auto max-w-screen-xl px-4 py-20 sm:px-6 lg:px-8">
+		<div className="mx-auto max-w-screen-xl px-4 py-20 sm:px-6 lg:px-8 bg-base-100">
 			<div className="mx-auto max-w-lg">
 				<h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
 					Login

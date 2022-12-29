@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../../assets/loginimage.jpg'
 import { AuthContext } from '../../../context/AuthProvider';
 const Register = () => {
@@ -7,9 +7,9 @@ const Register = () => {
     const {createUser, googleSignIn} = useContext(AuthContext)
 	
 	
-	// const location = useLocation();
+	const location = useLocation();
 	const navigate = useNavigate('/');
-	// const from = location.state?.from?.pathname || "/";
+	const from = location.state?.from?.pathname || "/";
     const handleSignUp = event =>{
         event.preventDefault()
 
@@ -24,7 +24,8 @@ const Register = () => {
         .then(result =>{
             const user = result.user;
             console.log(user)
-			form.reset();
+			      form.reset();
+            navigate(from, { replace: true });
 			
         })
         .catch(err =>console.log(err))
@@ -35,7 +36,7 @@ const Register = () => {
         .then(result =>{
             const user = result.user;
             console.log(user)
-
+            navigate(from, { replace: true });
             // const currentUser = {
             //     email: user.email,
             // };
@@ -46,9 +47,9 @@ const Register = () => {
     }
     return (
     
-      <section className="bg-white">
+      <section className="bg-base-100">
         <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
-          <div className='relative flex h-32 items-end lg:col-span-5 lg:h-full xl:col-span-6'>
+          <div className='relative bg-base-100 flex h-32 items-end lg:col-span-5 lg:h-full xl:col-span-6'>
             <img src={img} alt="" />
           </div>
       
@@ -92,7 +93,7 @@ const Register = () => {
 							<input
 								type="text"
 								id="name"
-                                name='name'
+                name='name'
 								className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
 								placeholder="Name"
 							/>
