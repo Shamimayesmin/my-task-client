@@ -75,14 +75,14 @@ const Navbar = () => {
 									</Link>
 								</li>
 
-								<li>
+								{/* <li>
 									<Link
 										className="hover:bg-teal-500 p-1 rounded-md hover:text-neutral"
 										to="/complete"
 									>
 										Complete Task
 									</Link>
-								</li>
+								</li> */}
 								<li>
 									<Link
 										className="hover:bg-teal-500 p-1 rounded-md hover:text-neutral"
@@ -99,7 +99,7 @@ const Navbar = () => {
 						<div className="sm:flex sm:gap-4">
 							{user? (
 								<button
-									className="hover:bg-teal-600 rounded-xl"
+									className="hover:bg-teal-600 rounded-xl p-2"
 									onClick={handleLogOut}
 								>
 									Sign Out
