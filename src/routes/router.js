@@ -11,57 +11,57 @@ import PrivateRoute from "./PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 
-
 const router = createBrowserRouter([
-    {
-        path : '/',
-        element : <Main></Main>,
-        children : [
-            {
-                path : '/',
-                element: <Task></Task>
-                
-            },
-            {
-                path : '/login',
-                element: <Login></Login>
-                
-            },
-            {
-                path : '/register',
-                element: <Register></Register>
-                
-            },
-            {
-                path : '/add',
-                element: <PrivateRoute><AddTask></AddTask> </PrivateRoute>  
-            },
-            {
-                path : '/mytask',
-                element: <PrivateRoute><MyTask></MyTask></PrivateRoute>  
-            },
-            {
-                path : '/completed/:id',
-                element: <Complete></Complete>, 
-                loader: ({ params }) =>
-					fetch(
-						`http://localhost:5000/completed/${params.id}`
-					), 
-            },
-            {
-                path : '/media',
-                element: <Media></Media> 
-            },
-            {
+	{
+		path: "/",
+		element: <Main></Main>,
+		children: [
+			{
+				path: "/",
+				element: <Task></Task>,
+			},
+			{
+				path: "/login",
+				element: <Login></Login>,
+			},
+			{
+				path: "/register",
+				element: <Register></Register>,
+			},
+			{
+				path: "/add",
+				element: (
+					<PrivateRoute>
+						<AddTask></AddTask>{" "}
+					</PrivateRoute>
+				),
+			},
+			{
+				path: "/mytask",
+				element: (
+					<PrivateRoute>
+						<MyTask></MyTask>
+					</PrivateRoute>
+				),
+			},
+			{
+				path: "/completed/:id",
+				element: <Complete></Complete>,
+				loader: ({ params }) =>
+					fetch(`https://my-task-server-eta.vercel.app/completed/${params.id}`),
+			},
+			{
+				path: "/media",
+				element: <Media></Media>,
+			},
+			{
 				path: "/edit/:id",
 				loader: ({ params }) =>
-					fetch(
-						`http://localhost:5000/edit/${params.id}`
-					),
-				element: <EditTask></EditTask>
-			}
-        ]
-    }
-])
+					fetch(`https://my-task-server-eta.vercel.app/edit/${params.id}`),
+				element: <EditTask></EditTask>,
+			},
+		],
+	},
+]);
 
-export default router
+export default router;

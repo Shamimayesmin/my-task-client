@@ -6,12 +6,12 @@ const EditTask = () => {
 	const editTask = useLoaderData();
 	console.log(editTask);
 	const { _id, message } = editTask;
-    const navigate = useNavigate();
+	const navigate = useNavigate();
 	const handleUpdateTask = (event) => {
 		event.preventDefault();
 		const updatedTask = event.target.message.value;
 
-		fetch(` http://localhost:5000/edit/${_id}`, {
+		fetch(` https://my-task-server-eta.vercel.app/edit/${_id}`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
@@ -29,8 +29,11 @@ const EditTask = () => {
 	};
 	return (
 		<div className="my-16">
-            <h2 className="text-center">Task {message}</h2>
-			<form onSubmit={handleUpdateTask} className="w-1/2 mx-auto mt-3 text-black">
+			<h2 className="text-center">Task {message}</h2>
+			<form
+				onSubmit={handleUpdateTask}
+				className="w-1/2 mx-auto mt-3 text-black"
+			>
 				<label className="sr-only" htmlFor="message">
 					Message
 				</label>
