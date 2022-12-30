@@ -71,7 +71,7 @@ const Login = () => {
 							<input
 								type="email"
 								id="email"
-								className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+								className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm text-black"
 								placeholder="Enter email"
 							/>
 
@@ -88,7 +88,7 @@ const Login = () => {
 							<input
 								type="password"
 								id="password"
-								className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+								className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm text-black"
 								placeholder="Enter password"
 							/>
 

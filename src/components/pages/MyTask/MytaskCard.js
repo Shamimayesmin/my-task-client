@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { HiArchiveBoxXMark, IconName,HiPencil } from "react-icons/hi2";
+import { HiArchiveBoxXMark,HiPencil } from "react-icons/hi2";
 
 const MytaskCard = ({item,handleDelete}) => {
     // console.log(item);

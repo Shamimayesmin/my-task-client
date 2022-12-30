@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { Link, useLoaderData } from "react-router-dom";
+
 import CompleteCard from "./CompleteCard";
 
 const Complete = () => {
