@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 import MytaskCard from "./MytaskCard";
 
 const MyTask = () => {
@@ -43,6 +44,7 @@ const MyTask = () => {
 
 	return (
 		<div>
+			<div>
 			{task.map((item) => (
 				<MytaskCard
 					key={item._id}
@@ -50,6 +52,10 @@ const MyTask = () => {
 					handleDelete={handleDelete}
 				></MytaskCard>
 			))}
+		</div>
+		<div className=" flex justify-center items-center mx-auto">
+		<Link to='/completed' className="btn ml-2 whitespace-nowrap rounded-full bg-teal-600 px-3 py-2 text-xs text-white">Completed</Link>
+		</div>
 		</div>
 	);
 };

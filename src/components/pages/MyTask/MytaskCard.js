@@ -6,7 +6,8 @@ const MytaskCard = ({item,handleDelete}) => {
     // console.log(item);
     const {date, message, _id} = item
     return (
-        <article className="rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:shadow-sm w-1/2 mx-auto my-16">
+       <div>
+		 <article className="rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:shadow-sm w-1/2 mx-auto my-16">
 			<div className="rounded-[10px] bg-base-100 text-neutral p-4 sm:p-6">
 				<time dateTime="2022-10-10" className="block text-xs text-gray-500">
 					{date}
@@ -24,12 +25,15 @@ const MytaskCard = ({item,handleDelete}) => {
                     <Link to={`/edit/${_id}`} className="btn ml-2 whitespace-nowrap rounded-full bg-teal-600 px-3 py-2 text-xs text-white"><HiPencil className="text-2xl"/>
 					</Link>
 
-                    <Link to={`/completed/${_id}`} className="btn ml-2 whitespace-nowrap rounded-full bg-teal-600 px-3 py-2 text-xs text-white">Completed</Link>
-
+                    {/* <Link to={`/completed/${_id}`} className="btn ml-2 whitespace-nowrap rounded-full bg-teal-600 px-3 py-2 text-xs text-white">Completed</Link> */}
+					
 					
 				</div>
 			</div>
 		</article>
+
+		
+	   </div>
     );
 };
 

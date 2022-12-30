@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import MediaCard from "./MediaCard";
 
 const Media = () => {
@@ -15,6 +16,21 @@ const Media = () => {
 			});
 	}, [setLoading]);
 
+	const handleDelete = (id) => {
+		fetch(` https://my-task-server-eta.vercel.app/addTask/${id}`, {
+			method: "DELETE",
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				// console.log(data);
+				if (data.deletedCount > 0) {
+					toast.success("deleted successfully");
+					const remaining = media.filter((ta) => ta._id !== id);
+					setMedia(remaining);
+				}
+			});
+	};
+
 	if (loading) {
 		return (
 			<div className="flex items-center">
@@ -27,7 +43,11 @@ const Media = () => {
 		<div>
 			<div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 my-16">
 				{media?.map((med, i) => (
-					<MediaCard key={med._id} med={med}></MediaCard>
+					<MediaCard
+						key={med._id}
+						med={med}
+						handleDelete={handleDelete}
+					></MediaCard>
 				))}
 			</div>
 		</div>

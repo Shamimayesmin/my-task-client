@@ -44,11 +44,16 @@ const router = createBrowserRouter([
 					</PrivateRoute>
 				),
 			},
+			// {
+			// 	path: "/completed/:id",
+			// 	element: <Complete></Complete>,
+			// 	loader: ({ params }) =>
+			// 		fetch(`https://my-task-server-eta.vercel.app/completed/${params.id}`),
+			// },
 			{
-				path: "/completed/:id",
+				path: "/completed",
 				element: <Complete></Complete>,
-				loader: ({ params }) =>
-					fetch(`https://my-task-server-eta.vercel.app/completed/${params.id}`),
+				
 			},
 			{
 				path: "/media",

@@ -56,7 +56,7 @@ const Task = () => {
 				<input
 					className="btn bg-teal-600 text-white p-4 rounded-md justify-center items-center"
 					type="submit"
-					value="+"
+					value="add"
 				/>
 			</form>
 		</div>

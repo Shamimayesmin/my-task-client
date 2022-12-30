@@ -75,14 +75,14 @@ const Navbar = () => {
 									</Link>
 								</li>
 
-								{/* <li>
+								<li>
 									<Link
 										className="hover:bg-teal-500 p-1 rounded-md hover:text-neutral"
-										to="/complete"
+										to="/completed"
 									>
 										Complete Task
 									</Link>
-								</li> */}
+								</li>
 								<li>
 									<Link
 										className="hover:bg-teal-500 p-1 rounded-md hover:text-neutral"
